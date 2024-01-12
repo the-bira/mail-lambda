@@ -30,7 +30,7 @@ jobs:
           aws configure set default.region sa-east-1  # Substitua pela sua região desejada
 
       - name: Install Dependencies
-        run: npm install --production
+        run: npm install
 
       - name: Build TypeScript
         run: npm run build
