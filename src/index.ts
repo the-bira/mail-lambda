@@ -43,4 +43,4 @@ const sendEmail: APIGatewayProxyHandler = async (event) => {
   }
 };
 
-export { sendEmail };
+export const handler = sendEmail;
