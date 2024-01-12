@@ -13,6 +13,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Debug - List Environment Variables
+        run: echo "$AWS_ACCESS_KEY_ID"
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -28,9 +31,6 @@ jobs:
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set default.region us-east-1  # Substitua pela sua região desejada
-
-      - name: Debug - List Environment Variables
-        run: env
 
       - name: Install Dependencies
         run: npm install
