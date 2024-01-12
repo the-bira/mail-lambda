@@ -1,5 +1,5 @@
-import { Handler } from 'aws-lambda'
-import nodemailer from 'nodemailer'
+import { APIGatewayProxyHandler } from 'aws-lambda';
+import nodemailer from 'nodemailer';
 
 interface EmailDTO {
   name: string;
@@ -17,13 +17,14 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const sendEmail: Handler<EmailDTO> = async (event) => {
-  const { name, email, message } = event;
+const sendEmail: APIGatewayProxyHandler = async (event) => {
+  const body = JSON.parse(event.body || '{}');
+  const { name, email, message } = body;
 
   const mailOptions = {
     from: 'noreply@example.com',
     to: 'aimbererm@gmail.com',
-    subject: 'Subject of your email',
+    subject: `Message from ${name}`,
     text: `${message}\n\nSent from: ${email} (${name})`
   };
 
