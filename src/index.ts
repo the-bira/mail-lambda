@@ -22,9 +22,9 @@ const sendEmail: Handler<EmailDTO> = async (event) => {
 
   const mailOptions = {
     from: 'noreply@example.com',
-    to: email,
+    to: 'aimbererm@gmail.com',
     subject: 'Subject of your email',
-    text: `Hello ${name},\n\n${message}`
+    text: `${message}\n\nSent from: ${email} (${name})`
   };
 
   try {
