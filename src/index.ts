@@ -8,11 +8,12 @@ interface EmailDTO {
 }
 
 const transporter = nodemailer.createTransport({
-  // Configure nodemailer transporter, e.g., SMTP settings
-  service: 'YourEmailService',
+  host: 'smtp.resend.com',
+  secure: true,
+  port: 465,
   auth: {
-    user: 'YourEmail@example.com',
-    pass: 'YourPassword'
+    user: 'resend',
+    pass: process.env.RESEND_API_KEY
   }
 });
 
