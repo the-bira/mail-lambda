@@ -19,7 +19,8 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "node_modules/nodemailer/**/*"
   ],
   "exclude": [
     "node_modules"
