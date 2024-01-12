@@ -1,5 +1,5 @@
-import { Handler } from 'aws-lambda';
-import * as nodemailer from 'nodemailer';
+import { Handler } from 'aws-lambda'
+import nodemailer from 'nodemailer'
 
 interface EmailDTO {
   name: string;

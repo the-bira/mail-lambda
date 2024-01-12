@@ -16,7 +16,9 @@
     "nodemailer": "^6.9.8"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.131",
     "@types/node": "^20.11.0",
+    "@types/nodemailer": "^6.4.14",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
