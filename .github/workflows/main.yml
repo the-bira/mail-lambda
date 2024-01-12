@@ -35,19 +35,23 @@ jobs:
           aws configure set default.region sa-east-1  # Substitua pela sua região desejada
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          npm ci --only=prod
+
+      - name: Update Dependencies
+        run: npm update
 
       - name: Build TypeScript
         run: npm run build
 
+      - name: Debug - List Files in dist
+        run: ls -R dist
+
       - name: Zip Lambda Function
         run: zip -r aimbere-mail-lambda.zip dist/*
 
-      - name: Debug - List Files
-        run: ls -R
-
-      - name: Debug - AWS CLI Configuration
-        run: aws configure list
+      - name: Debug - List Files in ZIP
+        run: unzip -l aimbere-mail-lambda.zip
 
       - name: Upload to S3
         run: aws s3 cp aimbere-mail-lambda.zip s3://aimbere-mail-lambda-bucket
