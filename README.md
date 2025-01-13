@@ -1,2 +1,2 @@
 # mail-lambda
-lambda function to send e-mails from portifolio website
+lambda function to send e-mails
